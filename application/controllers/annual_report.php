@@ -100,7 +100,12 @@ class Annual_report extends CI_Controller {
 			jarvis_load_view('sidebar',$data);
 			
 			if(!$subPage){
+				if($_POST['getJsonData']==true){
+					echo jarvis_echo($data['dataSummary'],'jumlah');
+					return die();
+				}else{
 				jarvis_load_view('annual_report/kegiatan',$data);
+				}
 			}else{
 				$data['cat_id']=jarvis_call_parameter('kategori_kegiatan');
 				if($subPage=='add'){

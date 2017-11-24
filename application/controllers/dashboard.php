@@ -38,6 +38,9 @@ class Dashboard extends CI_Controller {
 			jarvis_load_view('sidebar',$data);
 			jarvis_load_view('dashboard/page',$data);
 			jarvis_load_view('footer',$data);
+			
+			/*Add Redirect to Skip Dashboard in First*/
+			redirect('kegiatan/'.date('Y'));
 		}elseif($session_data and $session_data['on_screen']=='no'){
 			redirect('lock_screen', 'refresh');
 		}else{

@@ -3430,3 +3430,28 @@ fieldset[disabled] .btn-vk.active {
 .loginBG > body {
   background: transparent;
 }
+.set-bordius{
+	border-radius: 38px 38px 38px 38px;
+	-moz-border-radius: 38px 38px 38px 38px;
+	-webkit-border-radius: 38px 38px 38px 38px;
+	border: 0px solid #000000;
+	overflow: hidden;
+}
+.set-bordius-footer-only{
+	width: 100%;
+    margin-left: 5px;
+	border-radius: 0px 0px 38px 38px;
+	-moz-border-radius: 0px 0px 38px 38px;
+	-webkit-border-radius: 0px 0px 38px 38px;
+	border: 0px solid #000000;
+}
+svg {
+  transform:scale(1.0);
+  -webkit-transform:scale(1.0);
+}
+.pin{
+	width:20px;
+}
+.pin:hover{
+	cursor:pointer;
+}
