@@ -7,6 +7,8 @@
 				'title'=>'Tambah',
 				'url'=>'peserta/'.$year.'/'.uri_segment(3).'/'.uri_segment(4).'/add',
 				'set_value'=>array(
+					'username'=>'',
+					'password'=>'',
 					'nik'=>'',
 					'nama'=>'',
 					'ttl'=>'',
@@ -19,10 +21,19 @@
 					'hp_telp'=>'',
 					'email_fax'=>'',
 					'lembaga'=>'',
-					'rencana_usaha'=>''
+					'nama_usaha'=>'',
+					'jenis_bh'=>'',
+					'bidang_usaha'=>'',
+					'rencana_usaha'=>'',
+					'no_iumkm'=>'',
+					'no_npwp'=>'',
+					'total_karyawan'=>'',
+					'tikor_latlon'=>''
 					),
 				'form_active'=>array(
 					'nik'=>true,
+					'username'=>true,
+					'password'=>true,
 					'nama'=>true,
 					'ttl'=>true,
 					'jk'=>true,
@@ -34,9 +45,18 @@
 					'hp_telp'=>true,
 					'email_fax'=>true,
 					'lembaga'=>true,
-					'rencana_usaha'=>true
+					'nama_usaha'=>true,
+					'jenis_bh'=>true,
+					'bidang_usaha'=>true,
+					'rencana_usaha'=>true,
+					'no_iumkm'=>true,
+					'no_npwp'=>true,
+					'total_karyawan'=>true,
+					'tikor_latlon'=>true
 					),
 				'form_disable'=>array(
+					'username'=>false,
+					'password'=>false,
 					'nik'=>false,
 					'nama'=>false,
 					'ttl'=>false,
@@ -49,7 +69,14 @@
 					'hp_telp'=>false,
 					'email_fax'=>false,
 					'lembaga'=>false,
+					'nama_usaha'=>false,
+					'jenis_bh'=>false,
+					'bidang_usaha'=>false,
 					'rencana_usaha'=>false,
+					'no_iumkm'=>false,
+					'no_npwp'=>false,
+					'total_karyawan'=>false,
+					'tikor_latlon'=>false,
 					'save_button'=>false,
 					'mandatory'=>false,
 					)
@@ -58,6 +85,8 @@
 				'title'=>'Sunting',
 				'url'=>'peserta/'.$year.'/'.uri_segment(3).'/'.uri_segment(4).'/'.uri_segment(5),
 				'set_value'=>array(
+					'username'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'username') : '',
+					'password'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'password') : '',
 					'nik'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'nik') : '',
 					'nama'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'nama') : '',
 					'ttl'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'ttl') : '',
@@ -70,9 +99,42 @@
 					'hp_telp'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'hp_telp') : '',
 					'email_fax'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'email_fax') : '',
 					'lembaga'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'lembaga') : '',
-					'rencana_usaha'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'rencana_usaha') : ''
+					'nama_usaha'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'nama_usaha') : '',
+					'jenis_bh'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'jenis_bh') : '',
+					'bidang_usaha'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'bidang_usaha') : '',
+					'rencana_usaha'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'rencana_usaha') : '',
+					'no_iumkm'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'no_iumkm') : '',
+					'no_npwp'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'no_npwp') : '',
+					'total_karyawan'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'total_karyawan') : '',
+					'tikor_latlon'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'tikor_latlon') : ''
 					),
 				'form_active'=>array(
+					'nik'=>true,
+					'username'=>true,
+					'password'=>true,
+					'nama'=>true,
+					'ttl'=>true,
+					'jk'=>true,
+					'usia'=>true,
+					'rentang_usia'=>true,
+					'pendidikan'=>true,
+					'agama'=>true,
+					'alamat'=>true,
+					'hp_telp'=>true,
+					'email_fax'=>true,
+					'lembaga'=>true,
+					'nama_usaha'=>true,
+					'jenis_bh'=>true,
+					'bidang_usaha'=>true,
+					'rencana_usaha'=>true,
+					'no_iumkm'=>true,
+					'no_npwp'=>true,
+					'total_karyawan'=>true,
+					'tikor_latlon'=>true
+					),
+				'form_disable'=>array(
+					'username'=>true,
+					'password'=>true,
 					'nik'=>true,
 					'nama'=>true,
 					'ttl'=>true,
@@ -85,30 +147,24 @@
 					'hp_telp'=>true,
 					'email_fax'=>true,
 					'lembaga'=>true,
-					'rencana_usaha'=>true
-					),
-				'form_disable'=>array(
-					'nik'=>false,
-					'nama'=>false,
-					'ttl'=>false,
-					'jk'=>false,
-					'usia'=>false,
-					'rentang_usia'=>false,
-					'pendidikan'=>false,
-					'agama'=>false,
-					'alamat'=>false,
-					'hp_telp'=>false,
-					'email_fax'=>false,
-					'lembaga'=>false,
-					'rencana_usaha'=>false,
-					'save_button'=>false,
-					'mandatory'=>false
+					'nama_usaha'=>true,
+					'jenis_bh'=>true,
+					'bidang_usaha'=>true,
+					'rencana_usaha'=>true,
+					'no_iumkm'=>true,
+					'no_npwp'=>true,
+					'total_karyawan'=>true,
+					'tikor_latlon'=>true,
+					'save_button'=>true,
+					'mandatory'=>true
 					)
 				),
 			'detail'=>array(
 				'title'=>'Detail',
 				'url'=>'',
 				'set_value'=>array(
+					'username'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'username') : '',
+					'password'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'password') : '',
 					'nik'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'nik') : '',
 					'nama'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'nama') : '',
 					'ttl'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'ttl') : '',
@@ -121,10 +177,19 @@
 					'hp_telp'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'hp_telp') : '',
 					'email_fax'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'email_fax') : '',
 					'lembaga'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'lembaga') : '',
-					'rencana_usaha'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'rencana_usaha') : ''
+					'nama_usaha'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'nama_usaha') : '',
+					'jenis_bh'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'jenis_bh') : '',
+					'bidang_usaha'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'bidang_usaha') : '',
+					'rencana_usaha'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'rencana_usaha') : '',
+					'no_iumkm'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'no_iumkm') : '',
+					'no_npwp'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'no_npwp') : '',
+					'total_karyawan'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'total_karyawan') : '',
+					'tikor_latlon'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'tikor_latlon') : ''
 					),
 				'form_active'=>array(
 					'nik'=>true,
+					'username'=>true,
+					'password'=>true,
 					'nama'=>true,
 					'ttl'=>true,
 					'jk'=>true,
@@ -136,9 +201,19 @@
 					'hp_telp'=>true,
 					'email_fax'=>true,
 					'lembaga'=>true,
-					'rencana_usaha'=>true
+					'nama_usaha'=>true,
+					'jenis_bh'=>true,
+					'bidang_usaha'=>true,
+					'rencana_usaha'=>true,
+					'no_iumkm'=>true,
+					'no_npwp'=>true,
+					'total_karyawan'=>true,
+					'tikor_latlon'=>true
 					),
 				'form_disable'=>array(
+					'nik'=>true,
+					'username'=>true,
+					'password'=>true,
 					'nik'=>true,
 					'nama'=>true,
 					'ttl'=>true,
@@ -151,7 +226,14 @@
 					'hp_telp'=>true,
 					'email_fax'=>true,
 					'lembaga'=>true,
+					'nama_usaha'=>true,
+					'jenis_bh'=>true,
+					'bidang_usaha'=>true,
 					'rencana_usaha'=>true,
+					'no_iumkm'=>true,
+					'no_npwp'=>true,
+					'total_karyawan'=>true,
+					'tikor_latlon'=>true,
 					'save_button'=>true,
 					'mandatory'=>true
 					)
@@ -186,6 +268,20 @@
                                             </div>
                                             <div id="collapseOne" class="panel-collapse collapse in">
                                                 <div class="box-body">
+													<?php if($dataForm[$key_action]['form_active']['username']==true) { ?>
+														<div class="form-group">
+															<label for="username">Username <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
+															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['username']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('username',$dataForm[$key_action]['set_value']['username']); ?>" class="form-control" name="username" placeholder="Username ..." style="height: 29px;">
+															<?php echo form_error('username','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
+													<?php if($dataForm[$key_action]['form_active']['password']==true) { ?>
+														<div class="form-group">
+															<label for="password">Password <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
+															<input type="password" <?php echo ($dataForm[$key_action]['form_disable']['password']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('password',$dataForm[$key_action]['set_value']['password']); ?>" class="form-control" name="password" placeholder="Password ..." style="height: 29px;">
+															<?php echo form_error('password','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['nik']==true) { ?>
 														<div class="form-group">
 															<label for="nik">NIK / KTP <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
@@ -312,11 +408,77 @@
 															<?php echo form_error('lembaga','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 														</div>
 													<?php } ?>
+													<?php if($dataForm[$key_action]['form_active']['nama_usaha']==true) { ?>
+														<div class="form-group">
+															<label for="nama_usaha">Nama Usaha</label>
+															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['nama_usaha']==true ? 'readonly=readonly' : '');?> class="form-control" name="nama_usaha" placeholder="Nama Usaha ..." value="<?php echo set_value('nama_usaha',$dataForm[$key_action]['set_value']['nama_usaha']); ?>">
+															<?php echo form_error('nama_usaha','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['rencana_usaha']==true) { ?>
 														<div class="form-group">
 															<label for="rencana_usaha">Rencana Usaha</label>
 															<textarea <?php echo ($dataForm[$key_action]['form_disable']['rencana_usaha']==true ? 'readonly=readonly' : '');?> class="form-control" rows="3" name="rencana_usaha" placeholder="Rencana Usaha ..."><?php echo set_value('rencana_usaha',$dataForm[$key_action]['set_value']['rencana_usaha']); ?></textarea>
 															<?php echo form_error('rencana_usaha','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
+													
+													<?php if($dataForm[$key_action]['form_active']['jenis_bh']==true) { ?>
+														<div class="form-group">
+															<label for="jenis_bh">Jenis Bidang.H</label>
+															<input type="text" list="JBHList" <?php echo ($dataForm[$key_action]['form_disable']['jenis_bh']==true ? 'readonly=readonly' : '');?> class="form-control" name="jenis_bh" placeholder="Jenis Bidang.H ..." value="<?php echo set_value('jenis_bh',$dataForm[$key_action]['set_value']['jenis_bh']); ?>">
+															<?php echo form_error('jenis_bh','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+															<datalist id="JBHList">
+															<option value="Koperasi" />
+															<option value="Yayasa" />
+															<option value="CV" />
+															<option value="PT" />
+															<option value="Firma" />
+															<option value="Perkumpulan" />
+															<option value="Asosiasi" />
+															<option value="Forum" />
+															<option value="Himpunan" />
+															</datalist>
+														</div>
+													<?php } ?>
+													<?php if($dataForm[$key_action]['form_active']['bidang_usaha']==true) { ?>
+														<div class="form-group">
+															<label for="bidang_usaha">Bidang Usaha</label>
+															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['bidang_usaha']==true ? 'readonly=readonly' : '');?> class="form-control" name="bidang_usaha" placeholder="Bidang Usaha ..." value="<?php echo set_value('bidang_usaha',$dataForm[$key_action]['set_value']['bidang_usaha']); ?>">
+															<?php echo form_error('bidang_usaha','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
+													<?php if($dataForm[$key_action]['form_active']['no_iumkm']==true) { ?>
+														<div class="form-group">
+															<label for="no_iumkm">No IUMKM</label>
+															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['no_iumkm']==true ? 'readonly=readonly' : '');?> class="form-control" name="no_iumkm" placeholder="No.IUMKM ..." value="<?php echo set_value('no_iumkm',$dataForm[$key_action]['set_value']['no_iumkm']); ?>">
+															<?php echo form_error('no_iumkm','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
+													<?php if($dataForm[$key_action]['form_active']['no_npwp']==true) { ?>
+														<div class="form-group">
+															<label for="no_npwp">No NPWP</label>
+															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['no_npwp']==true ? 'readonly=readonly' : '');?> class="form-control" name="no_npwp" placeholder="No. NPWP ..." value="<?php echo set_value('no_npwp',$dataForm[$key_action]['set_value']['no_npwp']); ?>">
+															<?php echo form_error('no_npwp','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
+													
+													<?php if($dataForm[$key_action]['form_active']['total_karyawan']==true) { ?>
+														<div class="form-group">
+															<label for="total_karyawan" style="width: 100% !important;">Karyawan : (Total : <span id="total_karyawan_length"></span> Karyawan)</span>
+															<br><b>Daftar Karyawan</b>
+															<br><ol id="koleksi_karyawan"></ol>
+															<input type="text" width="100%" id="total_karyawan" <?php echo ($dataForm[$key_action]['form_disable']['total_karyawan']==true ? 'readonly=readonly' : '');?> class="form-control" name="total_karyawan" placeholder="Karyawan ..." value="<?php echo set_value('total_karyawan',$dataForm[$key_action]['set_value']['total_karyawan']); ?>">
+															<?php echo form_error('total_karyawan','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
+														</div>
+													<?php } ?>
+													<?php if($dataForm[$key_action]['form_active']['tikor_latlon']==true) { ?>
+														<div class="form-group">
+															<div id="mapPesertaForm" style="width: 100%; height:500px;"></div><br>
+															<label for="tikor_latlon">Titik Koordinat Lokasi (Peta Lokasi)</label>
+															<input type="text" class="form-control" id="tikor_latlonMapPeserta" /><br>
+															<input type="hidden" <?php echo ($dataForm[$key_action]['form_disable']['tikor_latlon']==true ? 'readonly=readonly' : '');?> class="form-control" id="tikor_latlon" name="tikor_latlon" placeholder="Titik Koordinat (Latitude , Longituude) ..." value="<?php echo set_value('tikor_latlon',$dataForm[$key_action]['set_value']['tikor_latlon']); ?>">
+															<?php echo form_error('tikor_latlon','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 														</div>
 													<?php } ?>
                                                 </div>
