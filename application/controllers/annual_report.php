@@ -95,6 +95,10 @@ class Annual_report extends CI_Controller {
 			$data['dataSummaryGender']=jarvis_get_data($this->searchField['tahun'],$this->view['report_vw_skala_propinsi_gender2'],$this->fieldOrder['tahun'],$this->fieldOrderType['asc'],'',array('tahun'=>$year,'prop_id'=>$propinsiDec));
 			/*END SKALA NASIONAL SUMMARY GENDER DATA*/
 			
+			/*START PESERTA DATA*/
+			$dp=jarvis_query_block('select *,trans_kegiatan_peserta.nama as nama_peserta,trans_kegiatan_peserta.id as peserta_id_tkp,trans_kegiatan.id as kegiatan_id_tkp,trans_kegiatan.nama as nama_kegiatan from `trans_kegiatan_peserta` INNER JOIN trans_kegiatan ON trans_kegiatan_peserta.kegiatan_id = trans_kegiatan.id WHERE prop_id="'.$propinsiDec.'"');
+			$data['dataPeserta']=$dp->result_array();
+			
 			jarvis_load_view('header',$data);
 			jarvis_load_view('navigation',$data);
 			jarvis_load_view('sidebar',$data);
@@ -240,6 +244,15 @@ class Annual_report extends CI_Controller {
 					$this->form_validation->set_rules('email_fax', 'Email / No.Fax', 'trim|xss_clean');
 					$this->form_validation->set_rules('lembaga', 'Asal Lembaga', 'trim|xss_clean');
 					$this->form_validation->set_rules('rencana_usaha', 'Rencana Usaha', 'trim|xss_clean');
+					$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+					$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+					$this->form_validation->set_rules('nama_usaha', 'Nama Usaha', 'trim|xss_clean');
+					$this->form_validation->set_rules('jenis_bh', 'Jenis Bidang.H', 'trim|xss_clean');
+					$this->form_validation->set_rules('bidang_usaha', 'Bidang Usaha', 'trim|xss_clean');
+					$this->form_validation->set_rules('no_iumkm', 'Nomor IUMKM', 'trim|xss_clean');
+					$this->form_validation->set_rules('no_npwp', 'Nomor NPWP', 'trim|xss_clean');
+					$this->form_validation->set_rules('total_karyawan', 'Karyawan', 'trim|xss_clean');
+					$this->form_validation->set_rules('tikor_latlon', 'Titik Koordinat Lokasi', 'trim|xss_clean');
 					if($this->form_validation->run() == FALSE){	
 						jarvis_load_view('annual_report/pesertaForm',$data);
 					}else{
@@ -257,7 +270,16 @@ class Annual_report extends CI_Controller {
 							'hp_telp'=>jarvis_post('hp_telp'),
 							'email_fax'=>jarvis_post('email_fax'),
 							'lembaga'=>jarvis_post('lembaga'),
-							'rencana_usaha'=>jarvis_post('rencana_usaha')
+							'rencana_usaha'=>jarvis_post('rencana_usaha'),
+							'username'=>jarvis_post('username'),
+							'password'=>jarvis_post('password'),
+							'nama_usaha'=>jarvis_post('nama_usaha'),
+							'jenis_bh'=>jarvis_post('jenis_bh'),
+							'bidang_usaha'=>jarvis_post('bidang_usaha'),
+							'no_iumkm'=>jarvis_post('no_iumkm'),
+							'no_npwp'=>jarvis_post('no_npwp'),
+							'total_karyawan'=>jarvis_post('total_karyawan'),
+							'tikor_latlon'=>jarvis_post('tikor_latlon')
 						);
 						jarvis_process_block($this->changeParams[1],$this->table['trans_kegiatan_peserta'],$data_insert,$sessionID);
 						redirect('peserta/'.$year.'/'.$propinsi.'/'.$kegiatan);
@@ -281,6 +303,15 @@ class Annual_report extends CI_Controller {
 						$this->form_validation->set_rules('email_fax', 'Email / No.Fax', 'trim|xss_clean');
 						$this->form_validation->set_rules('lembaga', 'Asal Lembaga', 'trim|xss_clean');
 						$this->form_validation->set_rules('rencana_usaha', 'Rencana Usaha', 'trim|xss_clean');
+						$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+						$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+						$this->form_validation->set_rules('nama_usaha', 'Nama Usaha', 'trim|xss_clean');
+						$this->form_validation->set_rules('jenis_bh', 'Jenis Bidang.H', 'trim|xss_clean');
+						$this->form_validation->set_rules('bidang_usaha', 'Bidang Usaha', 'trim|xss_clean');
+						$this->form_validation->set_rules('no_iumkm', 'Nomor IUMKM', 'trim|xss_clean');
+						$this->form_validation->set_rules('no_npwp', 'Nomor NPWP', 'trim|xss_clean');
+						$this->form_validation->set_rules('total_karyawan', 'Karyawan', 'trim|xss_clean');
+						$this->form_validation->set_rules('tikor_latlon', 'Titik Koordinat Lokasi', 'trim|xss_clean');
 						if($this->form_validation->run() == FALSE){	
 							jarvis_load_view('annual_report/pesertaForm',$data);
 						}else{
@@ -297,7 +328,16 @@ class Annual_report extends CI_Controller {
 								'hp_telp'=>jarvis_post('hp_telp'),
 								'email_fax'=>jarvis_post('email_fax'),
 								'lembaga'=>jarvis_post('lembaga'),
-								'rencana_usaha'=>jarvis_post('rencana_usaha')					
+								'rencana_usaha'=>jarvis_post('rencana_usaha'),
+								'username'=>jarvis_post('username'),
+								'password'=>jarvis_post('password'),
+								'nama_usaha'=>jarvis_post('nama_usaha'),
+								'jenis_bh'=>jarvis_post('jenis_bh'),
+								'bidang_usaha'=>jarvis_post('bidang_usaha'),
+								'no_iumkm'=>jarvis_post('no_iumkm'),
+								'no_npwp'=>jarvis_post('no_npwp'),
+								'total_karyawan'=>jarvis_post('total_karyawan'),
+								'tikor_latlon'=>jarvis_post('tikor_latlon')								
 							);
 							jarvis_process_block($this->changeParams[2],$this->table['trans_kegiatan_peserta'],$data_update,$sessionID,$this->pk['id'],$dataID);
 							redirect('peserta/'.$year.'/'.$propinsi.'/'.$kegiatan);
