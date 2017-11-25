@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title><?php echo jarvis_call_configuration('sitename');?> | <?php echo $page_title;?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		
+		<link href="<?php echo base_url();?>/js/plugins/jqvmap/dist/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
         <?php echo add_css($css); ?>
 		<style type="text/css">
 		.content{
