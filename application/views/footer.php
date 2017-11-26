@@ -5,7 +5,17 @@
 		<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDLGK6wNVyhXf-p0sPVshBCXrcHb6EXYQI"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-locationpicker/0.1.12/locationpicker.jquery.js"></script>
 		<script>
+		window.addEventListener("load", function(){
+			setTimeout(function(){$(".fa-gear").parent().remove();},1000);
+		});
 		window.onload = function() {
+		var ttl_input=function(){
+			$('[name="ttl"]').val($('[name="ttl1"]').val()+", "+$('[name="ttl2"]').val());
+		}
+		ttl_input();
+		$('[name="ttl1"],[name="ttl2"]').on('keyup',function(){
+			ttl_input();
+		});
 		var exec_mapPesertaForm=function(){
 			 if($('#tikor_latlon').val()==""){
 				var lat=-6.463470;
@@ -63,6 +73,35 @@
 		<script>
 		  jQuery(document).ready(function () {
 			var URLto;
+			var URLto2nd;
+			var loadTableProvInfo=function(){
+			$("[data-total-wirausaha-by-name-region]").each(function(){
+				URLto2nd=$("div[data-map-name='"+$(this).attr("data-total-wirausaha-by-name-region")+"']").attr("data-map-url");
+				var labels=$(this).attr("data-total-wirausaha-by-name-region");
+				//alert(labels+" "+URLto2nd);
+				$.post( URLto2nd, { getJsonData: true },function(JumlahPeserta, status){
+				  if(JumlahPeserta==""){ JumlahPeserta=0; }
+					$("[data-total-wirausaha-by-name-region='"+labels+"']").html(JumlahPeserta+" Wirausaha");
+				} );
+			});
+			}
+			$(".provinsiKoleksi").attr('style','visibility:hidden;');
+			$("<span id='msg_wait_prov_data'><b>Harap Menunggu beberapa detik, Sedang Mendapatkan Data ...</b></span>").insertBefore('.provinsiKoleksi');
+			loadTableProvInfo();
+			setTimeout(function(){
+				$('#msg_wait_prov_data').remove();
+				$(".provinsiKoleksi").attr('style','visibility:visible;');
+			},10000);
+			$(".provinsiKoleksi .pagination").on('click',function(){
+				$(".provinsiKoleksi").attr('style','visibility:hidden;');
+				$("<span id='msg_wait_prov_data'><b>Harap Menunggu beberapa detik, Sedang Mendapatkan Data ...</b></span>").insertBefore('.provinsiKoleksi');
+				loadTableProvInfo();
+				setTimeout(function(){
+					$('#msg_wait_prov_data').remove();
+					$(".provinsiKoleksi").attr('style','visibility:visible;');
+				},10000);
+				
+			});
 			jQuery('#vmap').vectorMap({
 			  map: 'indonesia_id',
 			  enableZoom: true,
@@ -74,7 +113,7 @@
 				  $.post( URLto, { getJsonData: true },function(JumlahPeserta, status){
 					  label[0].innerHTML="";
 					  if(JumlahPeserta==""){ JumlahPeserta=0; }
-					  label[0].innerHTML="Nama Provinsi : "+labels+" <br> Total Peserta : "+JumlahPeserta+" Peserta";
+					  label[0].innerHTML="Nama Provinsi : "+labels+" <br> Total Wirausaha : "+JumlahPeserta+" Wirausaha";
 				  } );
 			  },
 			  onRegionClick: function(event, code, region){

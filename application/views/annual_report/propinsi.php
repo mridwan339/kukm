@@ -31,6 +31,42 @@
 			}
 			?>
 			<div style="border-bottom: 1px solid #eee; margin-bottom:10px;"></div>
+			<div class="row provinsiKoleksi">
+			<div class="box-body table-responsive" style="margin-top:-5px; margin-left:10px; margin-right:10px;">
+				<table id="example1" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th style="padding:4px; vertical-align:middle; text-align:left;">No</th>
+							<th style="padding:4px; vertical-align:middle; text-align:left;">Nama Provinsi</th>
+							<th style="padding:4px; vertical-align:middle; text-align:left;">Jumlah Wirausaha</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php 
+					$noid=0;
+					foreach($dataPropinsi['data'] as $item){
+						$noid++;
+						if($item['parameter']=="DI Yogyakarta"){
+							$item['parameter']="Yogyakarta";
+						}
+					?>	
+							<tr>
+								<td style="padding:4px; vertical-align:middle;"><?php echo $noid; ?></td>
+								<td style="padding:4px; vertical-align:middle;"><a href="<?php echo base_url('kegiatan/'.$year.'/'.jarvis_encode($item['id']));?>"><?php echo $item['parameter'];?></a></td>
+								<td style="padding:4px; vertical-align:middle;" data-total-wirausaha-by-name-region="<?php echo $item['parameter'];?>"></td>
+							</tr>
+					<?php } ?>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th style="padding:4px; vertical-align:middle; text-align:left;">No</th>
+							<th style="padding:4px; vertical-align:middle; text-align:left;">Nama Provinsi</th>
+							<th style="padding:4px; vertical-align:middle; text-align:left;">Jumlah Wirausaha</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			</div><!-- /.box-body -->
 			<!--<div class="row">
 				<?php /*
 				foreach($dataPropinsi['data'] as $item){
