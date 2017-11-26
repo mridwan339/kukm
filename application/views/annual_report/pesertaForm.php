@@ -7,8 +7,6 @@
 				'title'=>'Tambah',
 				'url'=>'peserta/'.$year.'/'.uri_segment(3).'/'.uri_segment(4).'/add',
 				'set_value'=>array(
-					'username'=>'',
-					'password'=>'',
 					'nik'=>'',
 					'nama'=>'',
 					'ttl'=>'',
@@ -32,8 +30,6 @@
 					),
 				'form_active'=>array(
 					'nik'=>true,
-					'username'=>true,
-					'password'=>true,
 					'nama'=>true,
 					'ttl'=>true,
 					'jk'=>true,
@@ -55,8 +51,6 @@
 					'tikor_latlon'=>true
 					),
 				'form_disable'=>array(
-					'username'=>false,
-					'password'=>false,
 					'nik'=>false,
 					'nama'=>false,
 					'ttl'=>false,
@@ -85,8 +79,6 @@
 				'title'=>'Sunting',
 				'url'=>'peserta/'.$year.'/'.uri_segment(3).'/'.uri_segment(4).'/'.uri_segment(5),
 				'set_value'=>array(
-					'username'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'username') : '',
-					'password'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'password') : '',
 					'nik'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'nik') : '',
 					'nama'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'nama') : '',
 					'ttl'=>isset($dataPesertaEdit) ? jarvis_echo($dataPesertaEdit,'ttl') : '',
@@ -110,8 +102,6 @@
 					),
 				'form_active'=>array(
 					'nik'=>true,
-					'username'=>true,
-					'password'=>true,
 					'nama'=>true,
 					'ttl'=>true,
 					'jk'=>true,
@@ -133,38 +123,34 @@
 					'tikor_latlon'=>true
 					),
 				'form_disable'=>array(
-					'username'=>true,
-					'password'=>true,
-					'nik'=>true,
-					'nama'=>true,
-					'ttl'=>true,
-					'jk'=>true,
-					'usia'=>true,
-					'rentang_usia'=>true,
-					'pendidikan'=>true,
-					'agama'=>true,
-					'alamat'=>true,
-					'hp_telp'=>true,
-					'email_fax'=>true,
-					'lembaga'=>true,
-					'nama_usaha'=>true,
-					'jenis_bh'=>true,
-					'bidang_usaha'=>true,
-					'rencana_usaha'=>true,
-					'no_iumkm'=>true,
-					'no_npwp'=>true,
-					'total_karyawan'=>true,
-					'tikor_latlon'=>true,
-					'save_button'=>true,
-					'mandatory'=>true
+					'nik'=>false,
+					'nama'=>false,
+					'ttl'=>false,
+					'jk'=>false,
+					'usia'=>false,
+					'rentang_usia'=>false,
+					'pendidikan'=>false,
+					'agama'=>false,
+					'alamat'=>false,
+					'hp_telp'=>false,
+					'email_fax'=>false,
+					'lembaga'=>false,
+					'nama_usaha'=>false,
+					'jenis_bh'=>false,
+					'bidang_usaha'=>false,
+					'rencana_usaha'=>false,
+					'no_iumkm'=>false,
+					'no_npwp'=>false,
+					'total_karyawan'=>false,
+					'tikor_latlon'=>false,
+					'save_button'=>false,
+					'mandatory'=>false
 					)
 				),
 			'detail'=>array(
 				'title'=>'Detail',
 				'url'=>'',
 				'set_value'=>array(
-					'username'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'username') : '',
-					'password'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'password') : '',
 					'nik'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'nik') : '',
 					'nama'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'nama') : '',
 					'ttl'=>isset($dataPesertaDetail) ? jarvis_echo($dataPesertaDetail,'ttl') : '',
@@ -188,8 +174,6 @@
 					),
 				'form_active'=>array(
 					'nik'=>true,
-					'username'=>true,
-					'password'=>true,
 					'nama'=>true,
 					'ttl'=>true,
 					'jk'=>true,
@@ -212,8 +196,6 @@
 					),
 				'form_disable'=>array(
 					'nik'=>true,
-					'username'=>true,
-					'password'=>true,
 					'nik'=>true,
 					'nama'=>true,
 					'ttl'=>true,
@@ -241,11 +223,11 @@
 		?>
 		<section class="content-header">
 			<h2>
-				<small><b><?php echo $kegiatan;?></li></small></b>
+				<small><b>Biodata Detail Wirausaha<?php //echo $kegiatan;?></li></small></b>
 			</h2>
 			<ol class="breadcrumb">
 				<li><i class="fa fa-dashboard"></i> Beranda</li>
-				<li><?php echo $kegiatan;?></li>
+				<li>Biodata Detail Wirausaha<?php ///echo $kegiatan;?></li>
 				<li class="active"><?php echo $dataForm[$key_action]['title']; ?></li>
 			</ol>
 		</section>
@@ -268,20 +250,6 @@
                                             </div>
                                             <div id="collapseOne" class="panel-collapse collapse in">
                                                 <div class="box-body">
-													<?php if($dataForm[$key_action]['form_active']['username']==true) { ?>
-														<div class="form-group">
-															<label for="username">Username <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
-															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['username']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('username',$dataForm[$key_action]['set_value']['username']); ?>" class="form-control" name="username" placeholder="Username ..." style="height: 29px;">
-															<?php echo form_error('username','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
-														</div>
-													<?php } ?>
-													<?php if($dataForm[$key_action]['form_active']['password']==true) { ?>
-														<div class="form-group">
-															<label for="password">Password <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
-															<input type="password" <?php echo ($dataForm[$key_action]['form_disable']['password']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('password',$dataForm[$key_action]['set_value']['password']); ?>" class="form-control" name="password" placeholder="Password ..." style="height: 29px;">
-															<?php echo form_error('password','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
-														</div>
-													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['nik']==true) { ?>
 														<div class="form-group">
 															<label for="nik">NIK / KTP <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
@@ -291,15 +259,21 @@
 													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['nama']==true) { ?>
 														<div class="form-group">
-															<label for="Nama">Nama Peserta <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
+															<label for="Nama">Nama Pemilik <?php if($dataForm[$key_action]['form_disable']['mandatory']==true) {} else {?>(*)<?php } ?></label>
 															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['nama']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('nama',$dataForm[$key_action]['set_value']['nama']); ?>" class="form-control" name="nama" placeholder="Nama Peserta ..." style="height: 29px;">
 															<?php echo form_error('nama','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 														</div>
 													<?php } ?>
-													<?php if($dataForm[$key_action]['form_active']['ttl']==true) { ?>
+													<?php if($dataForm[$key_action]['form_active']['ttl']==true) { 
+													$ttl_splice=explode(", ",set_value('ttl',$dataForm[$key_action]['set_value']['ttl']));
+													?>
 														<div class="form-group">
-															<label for="TTL">Tempat Tanggal Lahir</label>
-															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['ttl']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('ttl',$dataForm[$key_action]['set_value']['ttl']); ?>" class="form-control" name="ttl" placeholder="TTL ..." style="height: 29px;">
+															<label for="TTL">Tempat Lahir</label>
+															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['ttl']==true ? 'readonly=readonly' : '');?> value="<?php echo $ttl_splice[0]; ?>" class="form-control" name="ttl1" placeholder="Tempat Lahir..." style="height: 29px;">
+															<br>
+															<label for="TTL">Tanggal Lahir</label>
+															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['ttl']==true ? 'readonly=readonly' : '');?> value="<?php echo $ttl_splice[1]; ?>" class="form-control" name="ttl2" placeholder="Tanggal Lahir..." style="height: 29px;">
+															<input type="hidden" <?php echo ($dataForm[$key_action]['form_disable']['ttl']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('ttl',$dataForm[$key_action]['set_value']['ttl']); ?>" class="form-control" name="ttl" placeholder="TTL ..." style="height: 29px;">
 															<?php echo form_error('ttl','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 														</div>
 													<?php } ?>
@@ -315,14 +289,14 @@
 														</div>
 													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['usia']==true) { ?>
-														<div class="form-group">
+														<div class="form-group hidden">
 															<label for="Usia">Usia</label>
 															<input type="text" <?php echo ($dataForm[$key_action]['form_disable']['usia']==true ? 'readonly=readonly' : '');?> value="<?php echo set_value('usia',$dataForm[$key_action]['set_value']['usia']); ?>" class="form-control" name="usia" placeholder="Usia ..." style="height: 29px;">
 															<?php echo form_error('usia','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 														</div>
 													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['rentang_usia']==true) { ?>
-														<div class="form-group">
+														<div class="form-group hidden">
 															<label for="rentang_usia">Rentang Usia</label>
 															<select class="form-control" <?php echo ($dataForm[$key_action]['form_disable']['rentang_usia']==true ? 'disabled=disabled' : '');?> name="rentang_usia" style="padding-bottom: 1px; padding-top: 1px; height: 29px;">
 																<option value=""></option>
@@ -369,7 +343,7 @@
                                                 <div class="box-body">
 													<?php if($dataForm[$key_action]['form_active']['alamat']==true) { ?>
 														<div class="form-group">
-															<label for="alamat">Alamat Peserta</label>
+															<label for="alamat">Alamat</label>
 															<textarea <?php echo ($dataForm[$key_action]['form_disable']['alamat']==true ? 'readonly=readonly' : '');?> class="form-control" rows="3" name="alamat" placeholder="Alamat ..."><?php echo set_value('alamat',$dataForm[$key_action]['set_value']['alamat']); ?></textarea>
 															<?php echo form_error('alamat','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 														</div>
@@ -383,7 +357,7 @@
 													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['email_fax']==true) { ?>
 														<div class="form-group">
-															<label for="email_fax">Email / Fax</label>
+															<label for="email_fax">Email</label>
 															<input <?php echo ($dataForm[$key_action]['form_disable']['email_fax']==true ? 'readonly=readonly' : '');?> type="text" value="<?php echo set_value('email_fax',$dataForm[$key_action]['set_value']['email_fax']); ?>" class="form-control" name="email_fax" placeholder="Email / Fax ..." style="height: 29px;">
 															<?php echo form_error('email_fax','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 														</div>
@@ -402,7 +376,7 @@
                                             <div id="collapseThree" class="panel-collapse collapse in">
                                                 <div class="box-body">
 													<?php if($dataForm[$key_action]['form_active']['lembaga']==true) { ?>
-														<div class="form-group">
+														<div class="form-group hidden">
 															<label for="lembaga">Asal Lembaga</label>
 															<input <?php echo ($dataForm[$key_action]['form_disable']['lembaga']==true ? 'readonly=readonly' : '');?> type="text" value="<?php echo set_value('lembaga',$dataForm[$key_action]['set_value']['lembaga']); ?>" class="form-control" name="lembaga" placeholder="Asal Lembaga ..." style="height: 29px;">
 															<?php echo form_error('lembaga','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
@@ -416,7 +390,7 @@
 														</div>
 													<?php } ?>
 													<?php if($dataForm[$key_action]['form_active']['rencana_usaha']==true) { ?>
-														<div class="form-group">
+														<div class="form-group hidden">
 															<label for="rencana_usaha">Rencana Usaha</label>
 															<textarea <?php echo ($dataForm[$key_action]['form_disable']['rencana_usaha']==true ? 'readonly=readonly' : '');?> class="form-control" rows="3" name="rencana_usaha" placeholder="Rencana Usaha ..."><?php echo set_value('rencana_usaha',$dataForm[$key_action]['set_value']['rencana_usaha']); ?></textarea>
 															<?php echo form_error('rencana_usaha','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
@@ -425,8 +399,8 @@
 													
 													<?php if($dataForm[$key_action]['form_active']['jenis_bh']==true) { ?>
 														<div class="form-group">
-															<label for="jenis_bh">Jenis Bidang.H</label>
-															<input type="text" list="JBHList" <?php echo ($dataForm[$key_action]['form_disable']['jenis_bh']==true ? 'readonly=readonly' : '');?> class="form-control" name="jenis_bh" placeholder="Jenis Bidang.H ..." value="<?php echo set_value('jenis_bh',$dataForm[$key_action]['set_value']['jenis_bh']); ?>">
+															<label for="jenis_bh">Jenis Badan Hukum</label>
+															<input type="text" list="JBHList" <?php echo ($dataForm[$key_action]['form_disable']['jenis_bh']==true ? 'readonly=readonly' : '');?> class="form-control" name="jenis_bh" placeholder="Jenis Badan Hukum ..." value="<?php echo set_value('jenis_bh',$dataForm[$key_action]['set_value']['jenis_bh']); ?>">
 															<?php echo form_error('jenis_bh','<div class="alert alert-danger alert-dismissable" style="margin-top:3px;"><i class="fa fa-ban"></i>','</div>'); ?>
 															<datalist id="JBHList">
 															<option value="Koperasi" />

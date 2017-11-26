@@ -110,6 +110,7 @@
 							<?php echo jarvis_permission_v2($permission,array('tabel'=>'trans_kegiatan_peserta','pk'=>'id','redirect'=>base_url().'peserta/'.$year.'/'.uri_segment(3).'/'.uri_segment(4),'path'=>$year.'/'.uri_segment(3).'/'.uri_segment(4).'/'));?>
 							<?php echo jarvis_permission('import',$permission,array('path'=>$year.'/'.uri_segment(3).'/'.uri_segment(4)));?>
 							<?php echo jarvis_permission('export',$permission,array('path'=>$year.'/'.uri_segment(3).'/'.uri_segment(4)));?>
+							<button type="button" class="btn btn-success btn-sm" onclick=location.href="<?php echo base_url(); ?>peserta/2017/g2zt4/h17tc/add">Tambah</button>
 							<button type="button" class="btn btn-success btn-sm" onclick=location.href="<?php echo base_url('kegiatan/'.$year.'/'.uri_segment(3));?>">Kembali</button>
 						</div>
 						<div class="box-body table-responsive" style="margin-top:-5px; margin-left:10px; margin-right:10px;">
@@ -118,11 +119,9 @@
 									<tr>
 										<th width="20" style="background:none; padding:4px; vertical-align:middle;"><input type="checkbox" class="checkAll"/></th>
 										<th style="padding:4px; vertical-align:middle; text-align:left;">NIK / KTP</th>
-										<th style="padding:4px; vertical-align:middle; text-align:left;">Nama Peserta</th>
-										<th style="padding:4px; vertical-align:middle;">Nama Kegiatan</th>
+										<th style="padding:4px; vertical-align:middle; text-align:left;">Nama Wirausaha</th>
 										<th style="padding:4px; vertical-align:middle; text-align:left;">Jenis Kelamin</th>
-										<th style="padding:4px; vertical-align:middle; text-align:left;">Usia</th>
-										<th style="padding:4px; vertical-align:middle; text-align:left;">Asal Lembaga</th>
+										<th style="padding:4px; vertical-align:middle;" width="160">Tindakan</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -133,10 +132,21 @@
 											<td style="padding:4px; vertical-align:middle; text-align:center;"><input type="checkbox" class="checkValue" value="<?php echo jarvis_encode($item['id']);?>" name="regCheck[]"/></td>
 											<td style="padding:4px; vertical-align:middle;"><?php echo $item['nik'];?></td>
 											<td style="padding:4px; vertical-align:middle;"><a href="<?php echo base_url('peserta/'.$year.'/'.uri_segment(3).'/'.jarvis_encode($item['kegiatan_id_tkp']).'/'.jarvis_encode($item['peserta_id_tkp']).'/detail');?>"><?php echo $item['nama_peserta'];?></a></td>
-											<td style="padding:4px; vertical-align:middle;"><?php echo $item['nama_kegiatan'];?></td>
 											<td style="padding:4px; vertical-align:middle;"><?php echo $item['jk'];?></td>
-											<td style="padding:4px; vertical-align:middle;"><?php echo $item['usia'];?></td>
-											<td style="padding:4px; vertical-align:middle;"><?php echo $item['lembaga'];?></td>
+											<th style="padding:4px; vertical-align:middle;">
+												<div class = "btn-group">
+												   <button type = "button" class = "btn btn-primary">Pilih Tindakan</button>
+												   
+												   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
+													  <span class = "caret"></span>
+													  <span class = "sr-only">Toggle Dropdown</span>
+												   </button>
+												   
+												   <ul class = "dropdown-menu" role = "menu">
+													  <li><a href="<?php echo base_url('peserta/'.$year.'/'.uri_segment(3).'/'.jarvis_encode($item['kegiatan_id_tkp']).'/'.jarvis_encode($item['peserta_id_tkp']).'');?>">Ubah Data</a></li>
+												   </ul>
+												</div>
+											</th>
 										</tr>
 										<?php
 									} 
@@ -146,11 +156,9 @@
 									<tr>
 										<th style="padding:4px;"></th>
 										<th style="padding:4px; vertical-align:middle;">NIK / KTP</th>
-										<th style="padding:4px; vertical-align:middle;">Nama Peserta</th>
-										<th style="padding:4px; vertical-align:middle;">Nama Kegiatan</th>
+										<th style="padding:4px; vertical-align:middle;">Nama Wirausaha</th>
 										<th style="padding:4px; vertical-align:middle;">Jenis Kelamin</th>
-										<th style="padding:4px; vertical-align:middle;">Usia</th>
-										<th style="padding:4px; vertical-align:middle;">Asal Lembaga</th>
+										<th style="padding:4px; vertical-align:middle;">Tindakan</th>
 									</tr>
 								</tfoot>
 							</table>

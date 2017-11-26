@@ -246,11 +246,9 @@ class Annual_report extends CI_Controller {
 					$this->form_validation->set_rules('agama', 'Agama', 'trim|xss_clean');
 					$this->form_validation->set_rules('alamat', 'Alamat Peserta', 'trim|xss_clean');
 					$this->form_validation->set_rules('hp_telp', 'HP / Telp', 'trim|xss_clean');
-					$this->form_validation->set_rules('email_fax', 'Email / No.Fax', 'trim|xss_clean');
+					$this->form_validation->set_rules('email_fax', 'Email', 'trim|required|xss_clean');
 					$this->form_validation->set_rules('lembaga', 'Asal Lembaga', 'trim|xss_clean');
 					$this->form_validation->set_rules('rencana_usaha', 'Rencana Usaha', 'trim|xss_clean');
-					$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-					$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 					$this->form_validation->set_rules('nama_usaha', 'Nama Usaha', 'trim|xss_clean');
 					$this->form_validation->set_rules('jenis_bh', 'Jenis Bidang.H', 'trim|xss_clean');
 					$this->form_validation->set_rules('bidang_usaha', 'Bidang Usaha', 'trim|xss_clean');
@@ -276,8 +274,6 @@ class Annual_report extends CI_Controller {
 							'email_fax'=>jarvis_post('email_fax'),
 							'lembaga'=>jarvis_post('lembaga'),
 							'rencana_usaha'=>jarvis_post('rencana_usaha'),
-							'username'=>jarvis_post('username'),
-							'password'=>jarvis_post('password'),
 							'nama_usaha'=>jarvis_post('nama_usaha'),
 							'jenis_bh'=>jarvis_post('jenis_bh'),
 							'bidang_usaha'=>jarvis_post('bidang_usaha'),
@@ -305,11 +301,9 @@ class Annual_report extends CI_Controller {
 						$this->form_validation->set_rules('agama', 'Agama', 'trim|xss_clean');
 						$this->form_validation->set_rules('alamat', 'Alamat Peserta', 'trim|xss_clean');
 						$this->form_validation->set_rules('hp_telp', 'HP / Telp', 'trim|xss_clean');
-						$this->form_validation->set_rules('email_fax', 'Email / No.Fax', 'trim|xss_clean');
+						$this->form_validation->set_rules('email_fax', 'Email', 'trim|required|xss_clean');
 						$this->form_validation->set_rules('lembaga', 'Asal Lembaga', 'trim|xss_clean');
 						$this->form_validation->set_rules('rencana_usaha', 'Rencana Usaha', 'trim|xss_clean');
-						$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-						$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 						$this->form_validation->set_rules('nama_usaha', 'Nama Usaha', 'trim|xss_clean');
 						$this->form_validation->set_rules('jenis_bh', 'Jenis Bidang.H', 'trim|xss_clean');
 						$this->form_validation->set_rules('bidang_usaha', 'Bidang Usaha', 'trim|xss_clean');
@@ -334,8 +328,6 @@ class Annual_report extends CI_Controller {
 								'email_fax'=>jarvis_post('email_fax'),
 								'lembaga'=>jarvis_post('lembaga'),
 								'rencana_usaha'=>jarvis_post('rencana_usaha'),
-								'username'=>jarvis_post('username'),
-								'password'=>jarvis_post('password'),
 								'nama_usaha'=>jarvis_post('nama_usaha'),
 								'jenis_bh'=>jarvis_post('jenis_bh'),
 								'bidang_usaha'=>jarvis_post('bidang_usaha'),
