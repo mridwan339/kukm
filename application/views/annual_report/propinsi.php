@@ -26,6 +26,8 @@
 				$numRan=rand(0,13);
 				if($item['parameter']=="DI Yogyakarta"){
 					$item['parameter']="Yogyakarta";
+				}else if($item['parameter']=="Bangka Belitung"){
+					$item['parameter']="Kep. Bangka Belitung";
 				}
 				echo '<div data-map-id="'.$item['id'].'" data-map-name="'.$item['parameter'].'" data-map-url="'.base_url('kegiatan/'.$year.'/'.jarvis_encode($item['id'])).'" class="location_detail hidden"></div>';
 			}
@@ -48,6 +50,8 @@
 						$noid++;
 						if($item['parameter']=="DI Yogyakarta"){
 							$item['parameter']="Yogyakarta";
+						}else if($item['parameter']=="Bangka Belitung"){
+							$item['parameter']="Kep. Bangka Belitung";
 						}
 					?>	
 							<tr>
